@@ -1,0 +1,65 @@
+services:
+  php:
+    image: brettt89/silverstripe-web:8.3-fpm
+    hostname: localhost
+    volumes:
+      - ./app:/var/www/html/app
+      - ./public:/var/www/html/public
+      - ./search:/var/www/html/search
+      - ./themes:/var/www/html/themes
+      - ss-vendor:/var/www/html/vendor
+      - ./composer.json:/var/www/html/composer.json
+    ports:
+      - 9000:9000
+    environment:
+      - DOCUMENT_ROOT=/var/www/html/public
+      - SS_TRUSTED_PROXY_IPS=*
+      - SS_ENVIRONMENT_TYPE=dev
+      - SS_DATABASE_CLASS=MySQLDatabase
+      - SS_DATABASE_SERVER=database
+      - SS_DATABASE_NAME=SS_sitedb
+      - SS_DATABASE_USERNAME=root
+      - SS_DATABASE_PASSWORD=example
+      - SS_DEFAULT_ADMIN_USERNAME=admin
+      - SS_DEFAULT_ADMIN_PASSWORD=password
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./public:/var/www/html/public
+      - ./dockerfiles/templates:/etc/nginx/templates
+    ports:
+      - 80:80
+    environment:
+      - NGINX_HOST=docker-ss.localhost
+    depends_on:
+      - php
+
+  composer:
+    image: composer/composer
+    volumes:
+      - ./app:/var/www/html/app
+      - ./public:/var/www/html/public
+      - ./themes:/var/www/html/themes
+      - ss-vendor:/var/www/html/vendor
+      - ./composer.json:/var/www/html/composer.json
+    working_dir: /var/www/html
+    command: update
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+      SS_VENDOR_METHOD: copy
+
+  database:
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: SS_sitedb
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+  ss-vendor:
