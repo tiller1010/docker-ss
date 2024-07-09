@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f73c716c6c95b927e7c2bbb4085d0b13",
+    "content-hash": "10962c2673aaf3b57c0e4b596c4dc5bf",
     "packages": [
         {
             "name": "composer/ca-bundle",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "0c5ccfcfea312b5c5a190a21ac5cef93f74baf99"
+                "reference": "063d9aa8696582f5a41dffbbaf3c81024f0a604a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/0c5ccfcfea312b5c5a190a21ac5cef93f74baf99",
-                "reference": "0c5ccfcfea312b5c5a190a21ac5cef93f74baf99",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/063d9aa8696582f5a41dffbbaf3c81024f0a604a",
+                "reference": "063d9aa8696582f5a41dffbbaf3c81024f0a604a",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,7 @@
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.10",
-                "psr/log": "^1.0",
+                "psr/log": "^1.0 || ^2.0 || ^3.0",
                 "symfony/phpunit-bridge": "^4.2 || ^5",
                 "symfony/process": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
@@ -64,7 +64,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.0"
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.1"
             },
             "funding": [
                 {
@@ -80,7 +80,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-15T14:00:32+00:00"
+            "time": "2024-07-08T15:28:20+00:00"
         },
         {
             "name": "composer/installers",
@@ -2717,16 +2717,16 @@
         },
         {
             "name": "silverstripe/framework",
-            "version": "5.2.14",
+            "version": "5.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-framework.git",
-                "reference": "1943f9d4173df4cb39992b960b870d5e41780348"
+                "reference": "c13ec34113737626058b8b68792c9e8c527dba5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/1943f9d4173df4cb39992b960b870d5e41780348",
-                "reference": "1943f9d4173df4cb39992b960b870d5e41780348",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-framework/zipball/c13ec34113737626058b8b68792c9e8c527dba5e",
+                "reference": "c13ec34113737626058b8b68792c9e8c527dba5e",
                 "shasum": ""
             },
             "require": {
@@ -2845,9 +2845,9 @@
             ],
             "support": {
                 "issues": "https://github.com/silverstripe/silverstripe-framework/issues",
-                "source": "https://github.com/silverstripe/silverstripe-framework/tree/5.2.14"
+                "source": "https://github.com/silverstripe/silverstripe-framework/tree/5.2.15"
             },
-            "time": "2024-07-03T02:23:25+00:00"
+            "time": "2024-07-09T01:18:29+00:00"
         },
         {
             "name": "silverstripe/graphql",
@@ -7175,5 +7175,9 @@
         "php": "^8.1"
     },
     "platform-dev": [],
+    "platform-overrides": {
+        "php": "8.3.9",
+        "ext-intl": "8.3.9"
+    },
     "plugin-api-version": "2.6.0"
 }

@@ -34,6 +34,10 @@
             "composer/installers": true,
             "silverstripe/recipe-plugin": true,
             "silverstripe/vendor-plugin": true
+        },
+        "platform": {
+          "php": "8.3.9",
+          "ext-intl": "8.3.9"
         }
     },
     "prefer-stable": true,
